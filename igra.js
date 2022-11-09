@@ -8,7 +8,7 @@ let computerCount = 0
 const choice = ['камень','ножницы','бумага'];
 
 
-while (answer === 'да') {
+for (;answer === 'да';) {
     let random = Math.floor(Math.random() * choice.length);
     console.log(choice[random]);
 
@@ -16,10 +16,12 @@ while (answer === 'да') {
     let MyChoice = prompt( `${name} выбери: камень ножницы или бумага`)
     console.log(MyChoice)
 
+
+
     if (MyChoice == null) break;
     if (MyChoice === 'стоп')break;
 
-    
+
     else if (computer === 'камень' && MyChoice === 'ножницы') {
         ++computerCount;
         alert(`Компьютер Победил счет игры ${MyCount} : ${computerCount}`);
