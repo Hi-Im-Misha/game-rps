@@ -1,6 +1,11 @@
 const answer = prompt('Привет, сыграть хоч ?')
 if (answer === 'да'){
     var name = prompt('Как вас зовут')
+    var NumberWins = prompt("До скольки Побед ?")
+    NumberWins = Number(NumberWins)
+}
+else{
+    alert('Как хоч :(')
 }
 
 let MyCount = 0
@@ -16,10 +21,11 @@ for (;answer === 'да';) {
     let MyChoice = prompt( `${name} выбери: камень ножницы или бумага`)
     console.log(MyChoice)
 
-
-
-    if (MyChoice == null) break;
+    if (MyChoice == null)  break;
     if (MyChoice === 'стоп')break;
+
+
+
 
 
     else if (computer === 'камень' && MyChoice === 'ножницы') {
@@ -34,22 +40,35 @@ for (;answer === 'да';) {
         ++computerCount;
         alert(`Компьютер Победил счет игры ${MyCount} : ${computerCount}`);
     }
+
+    else if (MyChoice === 'камень' && computer === 'ножницы') {
+        ++MyCount;
+        alert(`${name} ты победил счет игры ${MyCount} : ${computerCount}`);
+    }
+    else if (MyChoice === 'ножницы' && computer === 'бумага') {
+        ++MyCount;
+        alert(`${name} ты победил счет игры ${MyCount} : ${computerCount}`);
+    }
+    else if (MyChoice === 'бумага' && computer === 'камень') {
+        ++MyCount;
+        alert(`${name} ты победил счет игры ${MyCount} : ${computerCount}`);
+    }
     else if (computer === MyChoice) {
         alert(`ничья счет игры ${MyCount} : ${computerCount}`);
     }
     else {
-        ++MyCount;
-        alert(`${name} ты победил счет игры ${MyCount} : ${computerCount}`);
+        alert('Не верный вод');
     }
 
 
-    if (MyCount === 10){
+
+    if (MyCount === NumberWins){
         alert(`Конец игры счет ${MyCount} : ${computerCount} ${name} Победил!`)
         break
     }
-    if (computerCount === 10){
+    if (computerCount === NumberWins){
         alert(`Конец игры счет ${MyCount} : ${computerCount} Компьютер Победил!`)
         break
     }
 }
-alert('Как хоч :(')
+
